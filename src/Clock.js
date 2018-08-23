@@ -3,6 +3,11 @@ import './Clock.css';
 
 import * as moment from 'moment';
 
+const HOUR_UNIT = 360 / 12;
+const MINUTE_UNIT = 360 / 60;
+// const ACC_MINUTE_UNIT = 360 / 60;
+const SECOND_UNIT = 360 / 60;
+
 class Clock extends Component {
     constructor(props) {
         super(props);
@@ -29,9 +34,10 @@ class Clock extends Component {
 
     render() {
         const now = this.state.moment;
-        const hour = now.hours() * (360 / 12);
-        const minute = now.minutes() * (360 / 60);
-        const second = now.seconds() * (360 / 60);
+        const hour = (now.hours() + (now.minutes() / 60)) * HOUR_UNIT;
+        // const minute = now.minutes() * (360 / 60);
+        const minute = (now.minutes() + (now.seconds() / 60)) * MINUTE_UNIT;
+        const second = now.seconds() * SECOND_UNIT;
 
         const hStyle = {
             transform: `rotate(${ hour }deg)`

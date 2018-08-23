@@ -11,7 +11,7 @@ class App extends Component {
         <div className="Clocks">
           <div className="DigitalClock">
             <DigitalClock locale="ja" format="YYYY/MM/DD"/>
-            <DigitalClock locale="ja" format="HH:mm:ss"/>
+            <DigitalClock locale="ja" format="HH:mm"/>
           </div>
           <div className="Clock">
             <Clock/>
